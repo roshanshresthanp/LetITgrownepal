@@ -10,11 +10,11 @@ class StrategyController extends Controller
     public function create()
     {
         $strat = Strategy::all();
-        $visions = Strategy::where('heading','vision')->get();
+        // $visions = Strategy::where('heading','vision')->get();
         $missions = Strategy::where('heading','mission')->get();
         $objectives = Strategy::where('heading','objective')->get();
         // var_dump($vision);
-        return view('admin.strategy.create',compact('strat','visions','missions','objectives'));
+        return view('admin.strategy.create',compact('strat','missions','objectives'));
         
 
     }

@@ -115,7 +115,8 @@
                 <tbody>
                   <tr>
                     
-                    <td>@foreach($visions as $vision)
+                    <td>@foreach($strat as $vision)
+                      @if($vision->heading === "vision")
                      <li> {{$vision->description}}
                       <div class="btn-group">
                         {!!Form::open(['action'=>['App\Http\Controllers\StrategyController@delete',$vision->id],'method'=>'POST']) !!}
@@ -132,11 +133,12 @@
                         
                     </div>
                     </li>
-                    
+                    @endif
                       @endforeach
                       </td>
 
-                    <td>@foreach($missions as $mission)
+                    <td>@foreach($strat as $mission)
+                      @if($mission->heading ==="mission")
                       <li> {{$mission->description}}
                         <div class="btn-group">
                           {!!Form::open(['action'=>['App\Http\Controllers\StrategyController@delete',$mission->id],'method'=>'POST']) !!}
@@ -152,9 +154,11 @@
                           
                           
                       </div></li>
+                      @endif
                       @endforeach</td>
 
-                     <td>@foreach($objectives as $objective)
+                     <td>@foreach($strat as $objective)
+                      @if($objective->heading === "objective")
                       <li> {{$objective->description}}
                       <div class="btn-group">
                         {!!Form::open(['action'=>['App\Http\Controllers\StrategyController@delete',$objective->id],'method'=>'POST']) !!}
@@ -170,6 +174,7 @@
                         
                         
                     </div></li>
+                    @endif
                        @endforeach</td>
 
                   </tr>
@@ -180,7 +185,7 @@
 
             @else
             <div class="alert alert-danger">
-              <p style="text-align:center">Sorry, There is no plan to show !!</p>
+              <p style="text-align:center">Sorry, There is no strategic plans to show !!</p>
             </div>
             @endif
             <!-- /.card-body -->

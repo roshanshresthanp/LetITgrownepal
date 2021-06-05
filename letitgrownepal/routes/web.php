@@ -17,9 +17,9 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -36,4 +36,4 @@ Route::delete('/strategy/{id}',[StrategyController::class,'delete']);
 
 //Main routing
 
-Route::post('/',[PageController::class,'home']);
+Route::get('/',[PageController::class,'home']);

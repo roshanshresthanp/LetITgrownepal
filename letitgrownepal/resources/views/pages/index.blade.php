@@ -9,8 +9,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
-	<script src="js/main.js"></script> 
-	<link href="css/style.css" rel="stylesheet">
+	<script src="{{asset('js/main.js')}}"></script> 
+	<link href="{{asset('css/style.css')}}" rel="stylesheet">
 
 
 </head>
@@ -49,7 +49,7 @@
 
 
 <!-- Strategic Plan of BBDMP -->
-
+@if(count($strategy)>0)
   				<section class="pricing-table">
 			<div class="container">
 				<div class="block-heading">
@@ -62,7 +62,14 @@
 							<div class="heading">
 								<h3>Vision</h3>
 							</div>
-							<p><li>Achieve sustainable economic growth of Nepal through enhanced agricultural production and productivity by providing year-round irrigation; and generating reliable electricity with focused development of inter-basin water transfer and multipurpose projects using modern technologies like TBM by the means of effective and efficient public sector.</li></p>
+							<p>
+                                @foreach($strategy as $strat)
+                                @if($strat->heading==="vision")
+                                <li>
+                                {{$strat->description}}
+                                @endif
+                                @endforeach
+                                </li></p>
 							
 							
 							<button class="btn btn-block btn-outline-primary" type="submit">View more</button>
@@ -74,18 +81,14 @@
 							<div class="heading">
 								<h3>Mission</h3>
 							</div>
-						<p>
-						<li>Development of basin diversion multipurpose projects for optimum utilization of available water resources available in the country providing year-round irrigation, generating reliable electricity and also for other multipurpose benefits;</li>
-						<li>Successful usage of Tunnel Boring Machine (TBM) for fast construction of the tunnels and promote use of such technologies in other infrastructure development;</li>
-						<li>Enhance the capacity of the public sector to develop other diversion multipurpose projects and infrastructures.</li></p>
-							<!-- <div class="features">
-								<h4><span class="feature">Full Support</span> : <span class="value">Yes</span></h4>
-								<h4><span class="feature">Duration</span> : <span class="value">60 Days</span></h4>
-								<h4><span class="feature">Storage</span> : <span class="value">50GB</span></h4>
-							</div>
-							<div class="price">
-								<h4>$50</h4>
-							</div> -->
+                            <p>
+                                @foreach($strategy as $strat)
+                                @if($strat->heading==="mission")
+                                <li>
+                                {{$strat->description}}
+                                @endif
+                                @endforeach
+                                </li></p>
 						<button class="btn btn-block btn-outline-primary" type="submit">View more</button>						
 					</div>
 					</div>
@@ -95,10 +98,13 @@
 								<h3>Objectives</h3>
 							</div>
 							<p>
-								<li>To achieve round the year irrigation for 51,000 ha agricultural land of Banke and Bardiya districts and generate 46 MW electricity by transfering 40 m3/sec of water from Bheri River to Babai River (water surplus basin to water deficit basin) by completing the project within FY 2079/80;</li>
-								<li>To use TBM successfully for the construction of 12.2 Km long tunnel;</li>
-								<li>To enhance the technical capacity of technical personnels working in water resources and irrigation sector for the development of multipurpose projects and use of TBM technology;</li>
-								<li>To implement infrastructure development and capacity building programs to enhance social and economic status of the communities in project affected area.</li></p>
+                                @foreach($strategy as $strat)
+                                @if($strat->heading==="objective")
+                                <li>
+                                {{$strat->description}}
+                                @endif
+                                @endforeach
+                                </li></p>
 							
 							<button class="btn btn-block btn-outline-primary" type="submit">View more</button>						
 						</div>
@@ -106,6 +112,7 @@
 				</div>
 			</div>
 		</section>
+        @endif
 		<!--Strategies end -->
 
 
