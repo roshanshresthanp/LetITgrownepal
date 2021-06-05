@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StrategyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('home');
+Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard');
+
+
+//Strategic plan 
+Route::get('/strategy/add',[StrategyController::class,'create']);
+Route::post('/strategy/add',[StrategyController::class,'store']);
