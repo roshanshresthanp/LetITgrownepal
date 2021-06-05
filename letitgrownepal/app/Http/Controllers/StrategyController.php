@@ -9,7 +9,14 @@ class StrategyController extends Controller
 {
     public function create()
     {
-        return view('admin.strategy.create');
+        $strat = Strategy::all();
+        $visions = Strategy::where('heading','vision')->get();
+        $missions = Strategy::where('heading','mission')->get();
+        $objectives = Strategy::where('heading','objective')->get();
+        // var_dump($vision);
+        return view('admin.strategy.create',compact('strat','visions','missions','objectives'));
+        
+
     }
     
     public function store(Request $request)
@@ -21,4 +28,11 @@ class StrategyController extends Controller
 
         return redirect('/strategy/add')->with('success','Strategy added successfully !!');
     } 
+
+    public function delete($id)
+    {
+        $strat = Strategy::find($id);
+        $strat->delete();
+        return redirect('/strategy/add')->with('success','Strategy deleted successfully !!');
+    }
 }

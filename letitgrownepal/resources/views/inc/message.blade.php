@@ -2,19 +2,19 @@
     
     <div class="alert alert-danger">
         @foreach ($errors->all() as $error)
-      <p>{{$error}}</p>
+      <p style="text-align:center">{{$error}}</p>
     </div>    
     @endforeach
 @endif
 
 @if(session('success'))
     <div class="alert alert-success"> 
-       <p> {{session('success')}} <p>
+       <p style="text-align:center"> {{session('success')}} <p>
     </div>
 @endif
 
 @if(session('error'))
     <div class="alert alert-danger">
-        <p>{{session('error')}}</p>
+        <p style="text-align:center">{{session('error')}}</p>
     </div>
 @endif

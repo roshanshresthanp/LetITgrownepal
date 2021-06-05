@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StrategyController;
+use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,10 @@ Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard')
 //Strategic plan 
 Route::get('/strategy/add',[StrategyController::class,'create']);
 Route::post('/strategy/add',[StrategyController::class,'store']);
+Route::delete('/strategy/{id}',[StrategyController::class,'delete']);
+
+
+
+//Main routing
+
+Route::post('/',[PageController::class,'home']);
