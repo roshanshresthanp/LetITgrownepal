@@ -11,7 +11,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href={{url('/dashboard')}}>Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
             <li class="breadcrumb-item active">Strategic page </li>
           </ol>
         </div><!-- /.col -->
@@ -55,6 +55,12 @@
                                       <label class="col-sm-2 control-label">Description</label>
                                       <div class="col-sm-10">
                                           <textarea class="form-control" name="description" required placeholder="Plan description"></textarea>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">Description</label>
+                                      <div class="col-sm-10">
+                                          <input type="file" class="form-control" name="image" required>
                                       </div>
                                   </div>
                         

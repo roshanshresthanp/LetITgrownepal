@@ -11,10 +11,8 @@ class StrategyController extends Controller
     {
         $strat = Strategy::all();
         // $visions = Strategy::where('heading','vision')->get();
-        $missions = Strategy::where('heading','mission')->get();
-        $objectives = Strategy::where('heading','objective')->get();
         // var_dump($vision);
-        return view('admin.strategy.create',compact('strat','missions','objectives'));
+        return view('admin.strategy.create',compact('strat'));
         
 
     }
@@ -35,4 +33,6 @@ class StrategyController extends Controller
         $strat->delete();
         return redirect('/strategy/add')->with('success','Strategy deleted successfully !!');
     }
+
+    
 }

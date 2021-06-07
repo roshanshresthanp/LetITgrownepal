@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StrategyController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\NoticeController;
 
 
 /*
@@ -33,7 +34,13 @@ Route::post('/strategy/add',[StrategyController::class,'store']);
 Route::delete('/strategy/{id}',[StrategyController::class,'delete']);
 
 
+//Notice 
+Route::get('/notice/add',[NoticeController::class,'create']);
+Route::post('/notice/add',[NoticeController::class,'store']);
+Route::delete('/notice/{id}',[NoticeController::class,'delete']);
 
 //Main routing
 
 Route::get('/',[PageController::class,'home']);
+
+//

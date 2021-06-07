@@ -72,7 +72,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{url('strategy/add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Show plan</p>
                 </a>
@@ -82,7 +82,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Notice
                 <i class="right fas fa-angle-left"></i>
@@ -90,13 +90,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{url('notice/add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Notice</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{url('notice/add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Show Notice</p>
                 </a>
@@ -104,27 +104,12 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('gallery/add')}}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Image Gallery
-                <i class="right fas fa-angle-left"></i>
+                Gallery
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Image</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Show Image</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
 
