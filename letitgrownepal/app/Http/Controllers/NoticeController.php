@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Notice;
+use Illuminate\Support\Facades\Storage;
 
 class NoticeController extends Controller
 {
     public function create()
     {
-        $notice = Notice::all();
-        // $visions = Strategy::where('heading','vision')->get();
-        // var_dump($vision);
+        $notice = Notice::orderBy('id','desc')->get();
         return view('admin.notice.create',compact('notice'));
         
 
@@ -29,7 +28,7 @@ class NoticeController extends Controller
 
             $filenameToStore = $filename.'_'.time().'.'.$extension;
             // upload image
-            $path = $request->file('image')->storeAs('public/gallery',$filenameToStore);
+            $path = $request->file('image')->storeAs('public/notice',$filenameToStore);
 
         } else {
             $filenameToStore = 'noimage.jpg';
@@ -46,19 +45,24 @@ class NoticeController extends Controller
     public function delete($id)
     {
         $notice = Notice::find($id);
-        
-
         if($notice->image !== 'noimage.jpg'){
-            Storage::delete('public/gallery/'.$notice->image);
+            Storage::delete('public/notice/'.$notice->image);
         }
         $notice->delete();
 
         return redirect('/notice/add')->with('success','Notice deleted successfully !!');
     }
 
-    public function imageUpload(Request $request)
+    public function edit($id)
     {
-
+        $notice = Notice::orderBy('id','desc')->get();
+        $new = Notice::find($id);
+        return view('admin.notice.edit',compact('notice','new'));
+    }
+    
+    public function update(Request $request ,$id)
+    {
+        return "update";
     }
 
 

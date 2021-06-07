@@ -29,26 +29,26 @@
         <div class="card-header">
           <h3 class="card-title">
             <i class="fas fa-th"></i> &nbsp;
-            Add Notice
+            Edit Notice
           </h3>
         </div> 
         <div class="card-body">
           {{-- <div class="col-12"> --}}
             
             
-            {!! Form::open(['action'=>'App\Http\Controllers\NoticeController@store','method'=>'POST','class'=>"form-horizontal",'enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['action'=>['App\Http\Controllers\NoticeController@update',$new->id],'method'=>'POST','class'=>"form-horizontal",'enctype'=>'multipart/form-data']) !!}
             
                               
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">Title</label>
                                       <div class="col-sm-10">
-                                          <textarea class="form-control" name="description" required placeholder="Title description"></textarea>
+                                          <textarea class="form-control" name="description" required placeholder="Title description">{{$new->description}}</textarea>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                     <label class="col-sm-2 control-label">Upload</label>
                                     <div class="col-sm-10">
-                                        <input type="file" name="image" accept="image/*" required>
+                                        <input type="file" name="image" accept="image/*" value="{{$new->image}}" required>
                                     </div>
                                 </div>
                         
@@ -117,9 +117,9 @@
 
                      <td><div class="btn-group">
                         {!!Form::open(['action'=>['App\Http\Controllers\NoticeController@delete',$noti->id],'method'=>'POST']) !!}
-  
-                        <a  class="btn btn-success" href="{{url('notice')}}/{{$noti->id}}/edit"><i class="nav-icon fas fa-edit"></i></a>
+                      <a  class="btn btn-success" href="{{url('notice')}}/{{$noti->id}}/edit"><i class="nav-icon fas fa-edit"></i></a>
 
+                    
                         {{Form::hidden('_method','DELETE')}}
   
                         <button type="submit" class="btn btn-danger">

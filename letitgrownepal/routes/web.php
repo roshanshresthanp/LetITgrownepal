@@ -38,7 +38,14 @@ Route::delete('/strategy/{id}',[StrategyController::class,'delete']);
 Route::get('/notice/add',[NoticeController::class,'create']);
 Route::post('/notice/add',[NoticeController::class,'store']);
 Route::delete('/notice/{id}',[NoticeController::class,'delete']);
+Route::get('/notice/{id}/edit',[NoticeController::class,'edit']);
+Route::put('/notice/{id}',[NoticeController::class,'update']);
 
+
+//gallery
+Route::get('/gallery/add',[GalleryController::class,'create']);
+Route::post('/gallery/add',[GalleryController::class,'store']);
+Route::delete('/gallery/{id}',[GalleryController::class,'delete']);
 //Main routing
 
 Route::get('/',[PageController::class,'home']);
