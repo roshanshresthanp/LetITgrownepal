@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class NoticeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
         $notice = Notice::orderBy('id','desc')->get();
@@ -62,7 +67,10 @@ class NoticeController extends Controller
     
     public function update(Request $request ,$id)
     {
-        return "update";
+        $notice = Notice::find($id);
+        $notice->description = $request->input('description');
+        $notice->update();
+        return redirect('/notice/add')->with('success','Notice updated successfully !!');
     }
 
 
