@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 08:04 AM
+-- Generation Time: Jun 08, 2021 at 12:18 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -40,6 +40,30 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `galleries`
+--
+
+INSERT INTO `galleries` (`id`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'This is a facebook logo', 'facebook_1623142183.jpg', '2021-06-08 03:04:43', '2021-06-08 03:04:43'),
+(3, 'svg', 'facebook-svg_1623142908.svg', '2021-06-08 03:16:48', '2021-06-08 03:16:48'),
+(4, 'IT sansar', 'logo_itsansar_1623143941.png', '2021-06-08 03:34:01', '2021-06-08 03:34:01'),
+(5, 'test', 'homeappliances_1623144465.jpg', '2021-06-08 03:42:45', '2021-06-08 03:42:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -56,7 +80,34 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1);
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2021_06_05_041507_create_strategies_table', 1),
+(5, '2021_06_07_025138_create_notices_table', 2),
+(6, '2021_06_08_083330_create_galleries_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notices`
+--
+
+CREATE TABLE `notices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`id`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(11, 'IT sansar', 'facebook_1623059299.png', '2021-06-07 04:03:19', '2021-06-07 04:03:19'),
+(12, 'Your IT partner', 'logo new_1623059327.jpg', '2021-06-07 04:03:47', '2021-06-07 04:03:47'),
+(13, 'Just an example .', 'logo new_1623059855.jpg', '2021-06-07 04:12:35', '2021-06-07 20:55:06'),
+(14, 'Ups and downs', 'logo new_1623061422.jpg', '2021-06-07 04:38:42', '2021-06-08 02:33:00');
 
 -- --------------------------------------------------------
 
@@ -69,6 +120,29 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `strategies`
+--
+
+CREATE TABLE `strategies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `strategies`
+--
+
+INSERT INTO `strategies` (`id`, `heading`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'vision', 'This is a vision section', '2021-06-05 07:43:08', '2021-06-05 07:43:08'),
+(2, 'mission', 'This is a mission section', '2021-06-05 07:43:33', '2021-06-05 07:43:33'),
+(3, 'objective', 'This is a objective section', '2021-06-05 07:43:45', '2021-06-05 07:43:45');
 
 -- --------------------------------------------------------
 
@@ -92,7 +166,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'test@test.com', NULL, '$2y$10$4LrCpcKSJDqViDbNpaJFpOalpK2A.LhaERvwPRMycuu03sc1JZvoS', NULL, '2021-06-04 00:15:19', '2021-06-04 00:15:19');
+(1, 'test', 'test@test.com', NULL, '$2y$10$KfSd/8mNdHwyRVDNK.2zCO.pCPjTxcWbWkZWfguJQnIMuzVJxmFba', NULL, '2021-06-06 20:54:36', '2021-06-06 20:54:36');
 
 --
 -- Indexes for dumped tables
@@ -106,9 +180,21 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -116,6 +202,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `strategies`
+--
+ALTER TABLE `strategies`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -135,10 +227,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `strategies`
+--
+ALTER TABLE `strategies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
