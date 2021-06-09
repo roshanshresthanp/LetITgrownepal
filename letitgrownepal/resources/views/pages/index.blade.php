@@ -189,7 +189,7 @@
 						<li>Label area</li>
 						<li>Label area</li>
 						<li>Label area</li>
-						<br><br><a href=""><h6>Find out more...</h6></a>
+						<br><br><a href="{{url('/datatable')}}"><h6>Find out more...</h6></a>
 					</div>
 					<div class="column">
 					<h5>Construction & Building</h5>
@@ -197,7 +197,7 @@
 						<li>Label area</li>
 						<li>Label area</li>
 						<li>Label area</li>
-						<br><br><a href=""><h6>Find out more...</h6></a>
+						<br><br><a href="{{url('/datatable')}}"><h6>Find out more...</h6></a>
 					</div>
 					
 			</div>
