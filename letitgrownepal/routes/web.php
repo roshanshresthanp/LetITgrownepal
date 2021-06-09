@@ -51,4 +51,6 @@ Route::delete('/gallery/{id}',[GalleryController::class,'delete']);
 
 Route::get('/',[PageController::class,'home']);
 
+Route::get('/datatable',[PageController::class,'datatable'])->name('pages.datatable');
+
 //
